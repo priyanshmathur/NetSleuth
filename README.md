@@ -1,4 +1,4 @@
-# 🕵️ NetSleuth — AI-Powered Network Anomaly Detective
+#  NetSleuth — AI-Powered Network Anomaly Detective
 
 > Real-time network telemetry → Kafka → Statistical anomaly detection → Claude AI agent → Incident reports
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌──────────────┐     ┌─────────────────┐     ┌──────────────────┐     ┌──────────────┐
@@ -26,24 +26,9 @@
                                              └──────────────────────────────────────────┘
 ```
 
-## 📁 Repo Structure
-
-```
-netsleuth/
-├── docker-compose.yml   # Kafka + Zookeeper + Kafka UI
-├── requirements.txt
-├── .env.example         # Copy to .env and fill in your keys
-├── config.py            # Central config from .env
-├── producer.py          # Streams network metrics into Kafka
-├── detector.py          # Anomaly detection (z-score + rules)
-├── agent.py             # Claude AI agent with tool calling
-├── reporter.py          # Saves Markdown incident reports
-└── reports/             # Auto-created, stores incident .md files
-```
-
 ---
 
-## 🚀 Setup & Run
+## Setup & Run
 
 ### Prerequisites
 - Docker + Docker Compose
@@ -55,7 +40,7 @@ netsleuth/
 ### Step 1 — Clone & install dependencies
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/netsleuth
+git clone https://github.com/priyanshmathur/NetSleuth.git
 cd netsleuth
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
@@ -112,7 +97,7 @@ python reporter.py
 
 ---
 
-### Step 5 — Watch the magic 🪄
+### Step 5 — Watch the magic 
 
 Every ~20 seconds the producer injects a simulated attack. You'll see:
 1. Producer emits the event
@@ -122,7 +107,7 @@ Every ~20 seconds the producer injects a simulated attack. You'll see:
 
 ---
 
-## 🧠 How the AI Agent Works
+##  How the AI Agent Works
 
 The agent uses Claude's **tool-calling** feature in a **ReAct loop**:
 
@@ -136,7 +121,7 @@ This is the **ReAct (Reason + Act)** pattern — the foundation of modern AI age
 
 ---
 
-## 🔧 Extending NetSleuth
+##  Extending NetSleuth
 
 | What | How |
 |------|-----|
@@ -145,15 +130,6 @@ This is the **ReAct (Reason + Act)** pattern — the foundation of modern AI age
 | Alerting | Add a Slack/PagerDuty webhook in `reporter.py` |
 | Dashboard | Add Grafana with Kafka plugin to visualize topics |
 | Persistence | Add a PostgreSQL sink for anomaly history |
-
----
-
-## 📖 What You'll Learn
-
-- **Apache Kafka** — producers, consumers, consumer groups, topic design
-- **Agentic AI** — tool-calling LLMs, ReAct reasoning loop
-- **Network Security** — telemetry, anomaly detection, attack signatures
-- **Python async patterns** — event-driven architecture
 
 ---
 
